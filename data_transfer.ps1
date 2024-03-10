@@ -22,18 +22,7 @@ $LOGFOLDER = "D:\logs"
 $LOGPROFILE = "jerry.arciaga"
 
 # Folders to copy
-$FOLDERS = `
-    "Contacts",`
-    "Desktop",`
-    "Documents",`
-    "Downloads",`
-    "Favorites",`
-    "Links",`
-    "Music",`
-    "OneDrive",`
-    "Pictures",`
-    "Videos"
-
+$FOLDERS = Get-ChildItem -Name $SOURCE -Exclude ".*"
 ########################## END VARIABLES ########################################
 
 # Create log folders if they don't exist yet.
@@ -48,7 +37,7 @@ if (!(Test-Path $LOGFOLDER\$LOGPROFILE)) {
 Write-Host "The following files are ready for transfer:"
 foreach ($FOLDER in $FOLDERS) {
     if (Test-Path $SOURCE\$FOLDER) {
-        Write-Host "$SOURCE\$FOLDER"
+        Write-Host "$SOURCE\$FOLDER -> $DEST\$FOLDER"
     }
     else {
         Write-Host "$SOURCE\$FOLDER does not exist. Exiting..."
