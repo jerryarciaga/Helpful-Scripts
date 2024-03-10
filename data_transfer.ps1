@@ -46,7 +46,7 @@ pause
 # Perform robocopy script for each specified folder.
 foreach ($FOLDER in $FOLDERS) {
     robocopy $SOURCE\$FOLDER $DEST\$FOLDER `
-        /mt /v /e /zb /xa:e /xx /r:2 /w:2 /tee `
+        /mt /v /e /zb /xa:e /xx /r:2 /w:2 /tee /np `
         /copy:dat /dcopy:dat `
         /log:$LOGFOLDER\$LOGPROFILE\$FOLDER.log
     Get-Content $LOGFOLDER\$LOGPROFILE\$FOLDER.log >> $LOGFOLDER\$LOGPROFILE\$LOGPROFILE.merged.log
