@@ -21,14 +21,6 @@ $LOGFOLDER = "D:\logs"
 $LOGPROFILE = "jerry.arciaga"
 ########################## END VARIABLES ########################################
 
-# Create log folders if they don't exist yet.
-if (!(Test-Path $LOGFOLDER)) {
-    New-Item -ItemType Directory $LOGFOLDER
-}
-if (!(Test-Path $LOGFOLDER\$LOGPROFILE)) {
-    New-Item -ItemType Directory $LOGFOLDER\$LOGPROFILE
-}
-
 # Give opportunity to check on specified files.
 $FOLDERS = Get-ChildItem -Name $SOURCE -Exclude ".*"
 Write-Host "The following files are ready for transfer:"
@@ -42,6 +34,14 @@ foreach ($FOLDER in $FOLDERS) {
     }
 }
 pause
+
+# Create log folders if they don't exist yet.
+if (!(Test-Path $LOGFOLDER)) {
+    New-Item -ItemType Directory $LOGFOLDER
+}
+if (!(Test-Path $LOGFOLDER\$LOGPROFILE)) {
+    New-Item -ItemType Directory $LOGFOLDER\$LOGPROFILE
+}
 
 # Perform robocopy script for each specified folder.
 foreach ($FOLDER in $FOLDERS) {
