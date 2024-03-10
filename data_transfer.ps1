@@ -56,6 +56,6 @@ pause
 foreach ($FOLDER in $FOLDERS) {
     robocopy $SOURCE\$FOLDER $DEST\$FOLDER `
         /mt /v /e /zb /xa:e /xx /r:2 /w:2 /tee `
-        /copyall `
-        /log:$LOGFOLDER\$LOGPROFILE\$FOLDER.copy.log
+        /copy:dat /dcopy:dat `
+        /log:$LOGFOLDER\$LOGPROFILE\$FOLDER.log
 }
