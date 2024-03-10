@@ -5,6 +5,13 @@
     Created:        09 Mar 24
     Description:
         This script copies multiple folders from one drive to another using a series of robocopy commands.
+    Usage:
+        In the variables section, specify the following variables, then run script:
+            1. $SOURCE - The source folder (no trailing slashes)
+            2. $DEST - The destination folder. This script will copy files into subdirectories if they exist already.
+            3. $LOGFOLDER - Generic name to store log profiles.
+            4. $LOGPROFILE - Folder to store log files. Log files will be stored in $LOGFOLDER\$LOGPROFILE
+            5. $FOLDERS - Specify folders within $SOURCE.
 #>
 
 
