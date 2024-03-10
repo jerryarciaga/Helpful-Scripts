@@ -22,7 +22,7 @@ $LOGPROFILE = "jerry.arciaga"
 ########################## END VARIABLES ########################################
 
 # Give opportunity to check on specified files.
-$FOLDERS = Get-ChildItem -Name $SOURCE -Exclude ".*"
+$FOLDERS = Get-ChildItem -Name $SOURCE -Directory -Exclude ".*"
 Write-Host "The following files are ready for transfer:"
 foreach ($FOLDER in $FOLDERS) {
     if (Test-Path $SOURCE\$FOLDER) {
