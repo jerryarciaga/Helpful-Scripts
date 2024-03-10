@@ -63,4 +63,5 @@ foreach ($FOLDER in $FOLDERS) {
         /mt /v /e /zb /xa:e /xx /r:2 /w:2 /tee `
         /copy:dat /dcopy:dat `
         /log:$LOGFOLDER\$LOGPROFILE\$FOLDER.log
+    Get-Content $LOGFOLDER\$LOGPROFILE\$FOLDER.log >> $LOGFOLDER\$LOGPROFILE\$LOGPROFILE_merged.log
 }
