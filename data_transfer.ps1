@@ -11,10 +11,10 @@
 #################################################################################
 # VARIABLES - Specify the source, destination and a location to store log files #
 #################################################################################
-$PROFILE = "jerry.arciaga"
 $SOURCE = "C:\Users\Jerry"
 $DEST = "D:\jerry.bk"
 $LOGFOLDER = "D:\logs"
+$LOGPROFILE = "jerry.arciaga"
 
 # Folders to copy
 $FOLDERS = `
@@ -26,7 +26,8 @@ $FOLDERS = `
     "Links",`
     "Music",`
     "OneDrive",`
-    "Pictures"
+    "Pictures",`
+    "Videos"
 
 ########################## END VARIABLES ########################################
 
@@ -34,8 +35,8 @@ $FOLDERS = `
 if (!(Test-Path $LOGFOLDER)) {
     New-Item -ItemType Directory $LOGFOLDER
 }
-if (!(Test-Path $LOGFOLDER\$PROFILE)) {
-    New-Item -ItemType Directory $LOGFOLDER\$PROFILE
+if (!(Test-Path $LOGFOLDER\$LOGPROFILE)) {
+    New-Item -ItemType Directory $LOGFOLDER\$LOGPROFILE
 }
 
 # Give opportunity to check on specified files.
@@ -56,5 +57,5 @@ foreach ($FOLDER in $FOLDERS) {
     robocopy $SOURCE\$FOLDER $DEST\$FOLDER `
         /mt /v /e /zb /xa:e /xx /r:2 /w:2 /tee `
         /copyall `
-        /log:$LOGFOLDER\$PROFILE\$FOLDER.copy.log
+        /log:$LOGFOLDER\$LOGPROFILE\$FOLDER.copy.log
 }
