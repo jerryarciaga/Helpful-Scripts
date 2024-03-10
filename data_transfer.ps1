@@ -33,6 +33,7 @@ foreach ($FOLDER in $FOLDERS) {
         return
     }
 }
+Write-Host "Log files will be written in $LOGFOLDER\$LOGPROFILE"
 pause
 
 # Create log folders if they don't exist yet.
