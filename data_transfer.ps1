@@ -41,12 +41,12 @@ if (!(Test-Path $LOGFOLDER\$PROFILE)) {
 # Give opportunity to check on specified files.
 Write-Host "The following files are ready for transfer:"
 foreach ($FOLDER in $FOLDERS) {
-    if (Test-Path $FOLDER) {
-        Write-Host "$FOLDER"
+    if (Test-Path $SOURCE\$FOLDER) {
+        Write-Host "$SOURCE\$FOLDER"
     }
     else {
-        Write-Host "$FOLDER does not exist. Exiting..."
-        return 1
+        Write-Host "$SOURCE\$FOLDER does not exist. Exiting..."
+        return
     }
 }
 pause
