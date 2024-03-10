@@ -11,7 +11,6 @@
             2. $DEST - The destination folder. This script will copy files into subdirectories if they exist already.
             3. $LOGFOLDER - Generic name to store log profiles.
             4. $LOGPROFILE - Folder to store log files. Log files will be stored in $LOGFOLDER\$LOGPROFILE
-            5. $FOLDERS - Specify folders within $SOURCE.
 #>
 
 
@@ -20,9 +19,6 @@ $SOURCE = "C:\Users\Jerry"
 $DEST = "D:\jerry.bk"
 $LOGFOLDER = "D:\logs"
 $LOGPROFILE = "jerry.arciaga"
-
-# Folders to copy
-$FOLDERS = Get-ChildItem -Name $SOURCE -Exclude ".*"
 ########################## END VARIABLES ########################################
 
 # Create log folders if they don't exist yet.
@@ -34,6 +30,7 @@ if (!(Test-Path $LOGFOLDER\$LOGPROFILE)) {
 }
 
 # Give opportunity to check on specified files.
+$FOLDERS = Get-ChildItem -Name $SOURCE -Exclude ".*"
 Write-Host "The following files are ready for transfer:"
 foreach ($FOLDER in $FOLDERS) {
     if (Test-Path $SOURCE\$FOLDER) {
