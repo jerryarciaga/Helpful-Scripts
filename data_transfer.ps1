@@ -15,9 +15,7 @@
 #>
 
 
-#################################################################################
-# VARIABLES - Specify the source, destination and a location to store log files #
-#################################################################################
+########################### BEGIN VARIABLES #####################################
 $SOURCE = "C:\Users\Jerry"
 $DEST = "D:\jerry.bk"
 $LOGFOLDER = "D:\logs"
