@@ -50,4 +50,4 @@ foreach ($FOLDER in $FOLDERS) {
         /log:$LOGFOLDER\$LOGPROFILE\$FOLDER.log
     Get-Content $LOGFOLDER\$LOGPROFILE\$FOLDER.log >> $LOGFOLDER\$LOGPROFILE\$LOGPROFILE.merged.log
 }
-Write-Host "Data Transfer Complete as of: $(Get-Date)" >> $LOGFOLDER\$LOGPROFILE\$LOGPROFILE.merged.log
+Write-Output "Data Transfer Complete as of: $(Get-Date)" >> $LOGFOLDER\$LOGPROFILE\$LOGPROFILE.merged.log
