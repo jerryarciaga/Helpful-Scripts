@@ -1,2 +1,2 @@
 # IT Scripts
-A collection of scripts I wrote to help my in my career.
+A collection of scripts I wrote to help me in my career.
