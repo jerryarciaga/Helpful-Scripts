@@ -52,5 +52,5 @@ foreach ($FOLDER in $FOLDERS) {
         /log:$LOGFOLDER\$LOGPROFILE\$FOLDER.log
     Get-Content $LOGFOLDER\$LOGPROFILE\$FOLDER.log >> $LOGFOLDER\$LOGPROFILE\$LOGPROFILE.merged.log
 }
-Write-Output "Data Transfer Complete as of: $(Get-Date)" |
+Write-Output "Data Transfer complete as of: $(Get-Date)" |
     Tee-Object -Append $LOGFOLDER\$LOGPROFILE\$LOGPROFILE.merged.log
