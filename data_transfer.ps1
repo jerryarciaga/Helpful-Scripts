@@ -1,16 +1,19 @@
-﻿#  FileName:       data_transfer.ps1
-#  Author:         Jerry Arciaga
-#  Contact:        jerryarciaga11@gmail.com
-#  Created:        09 Mar 24
-#  Description:
-#      This script copies multiple folders from one drive to another using a series of robocopy commands.
-#  Usage:
-#      In the variables section, specify the following variables, then run script:
-#          1. $SOURCE - The source folder (no trailing slashes)
-#          2. $DEST - The destination folder. This script will copy files into subdirectories if they exist already.
-#          3. $LOGFOLDER - Generic name to store log profiles.
-#          4. $LOGPROFILE - Folder to store log files. Log files will be stored in $LOGFOLDER\$LOGPROFILE
-
+﻿<#
+    FileName:       data_transfer.ps1
+    Author:         Jerry Arciaga
+    Contact:        jerryarciaga11@gmail.com
+    Created:        09 Mar 24
+    Description:
+        This script copies multiple folders from one drive to another using a
+        series of robocopy commands.
+    Usage:
+        Specify the following by entering the following information
+            1. $SOURCE - Absolute path
+            2. $DEST - The destination folder.
+            3. $LOGFOLDER - Generic name to store log profiles.
+            4. $LOGPROFILE - Folder to store log files.
+                NOTE: Log files will be stored in $LOGFOLDER\$LOGPROFILE
+ #>
 
 ########################### BEGIN VARIABLES #####################################
 $SOURCE = Read-Host "Enter Source Location"
@@ -50,4 +53,5 @@ foreach ($FOLDER in $FOLDERS) {
         /log:$LOGFOLDER\$LOGPROFILE\$FOLDER.log
     Get-Content $LOGFOLDER\$LOGPROFILE\$FOLDER.log >> $LOGFOLDER\$LOGPROFILE\$LOGPROFILE.merged.log
 }
-Write-Output "Data Transfer Complete as of: $(Get-Date)" >> $LOGFOLDER\$LOGPROFILE\$LOGPROFILE.merged.log
+Write-Output "Data Transfer Complete as of: $(Get-Date)" |
+    Tee-Object -Append $LOGFOLDER\$LOGPROFILE\$LOGPROFILE.merged.log
