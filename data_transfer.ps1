@@ -2,6 +2,7 @@
     FileName:       data_transfer.ps1
     Author:         Jerry Arciaga
     Created:        09 Mar 24
+    Updated:        22 Mar 24
     Description:
         This script copies multiple folders from one drive to another using a
         series of robocopy commands.
