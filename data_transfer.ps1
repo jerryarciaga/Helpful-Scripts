@@ -47,7 +47,7 @@ if (!(Test-Path $LOGFOLDER\$LOGPROFILE)) {
 # Perform robocopy script for each specified folder.
 foreach ($FOLDER in $FOLDERS) {
     robocopy $SOURCE\$FOLDER $DEST\$FOLDER `
-        /mt /e /zb /xo /xa:e /xx /r:2 /w:2 /tee /np `
+        /mt /e /zb /xo /xa:e /xx /xj /r:2 /w:2 /tee /np `
         /copy:dat /dcopy:dat `
         /log:$LOGFOLDER\$LOGPROFILE\$FOLDER.log
     Get-Content $LOGFOLDER\$LOGPROFILE\$FOLDER.log >> $LOGFOLDER\$LOGPROFILE\$LOGPROFILE.merged.log
